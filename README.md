@@ -5,3 +5,4 @@
 3. `npx prisma db push`
 4. `npx prisma generate`
 5. `npx prisma migrate reset`
+6. `docker compose down -v `
