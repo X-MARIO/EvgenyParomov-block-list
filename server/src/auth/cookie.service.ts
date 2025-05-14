@@ -4,7 +4,7 @@ import { Response } from 'express';
 
 @Injectable()
 export class CookieService {
-  private static tokenKey = 'access-token';
+  public static tokenKey = 'access-token';
 
   public setToken(res: Response, token: string) {
     res.cookie(CookieService.tokenKey, token, {
