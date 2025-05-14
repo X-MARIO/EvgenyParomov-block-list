@@ -37,8 +37,15 @@ export class AuthController {
   @Post('sign-in')
   @ApiCreatedResponse()
   @HttpCode(HttpStatus.OK)
-  public async signIn(@Body() body: SignInBodyDto) {
-    return await this.authService.signIn(body.email, body.password);
+  public async signIn(
+    @Body() body: SignInBodyDto,
+    @Res({ passthrough: true }) res: Response,
+  ) {
+    const { accessToken } = await this.authService.signIn(
+      body.email,
+      body.password,
+    );
+    this.cookieService.setToken(res, accessToken);
   }
 
   @Post('sign-out')
