@@ -127,6 +127,12 @@ exports.Prisma.UserScalarFieldEnum = {
   salt: 'salt'
 };
 
+exports.Prisma.AccountScalarFieldEnum = {
+  id: 'id',
+  ownerId: 'ownerId',
+  isBlockingEnabled: 'isBlockingEnabled'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -139,7 +145,8 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  User: 'User'
+  User: 'User',
+  Account: 'Account'
 };
 
 /**
