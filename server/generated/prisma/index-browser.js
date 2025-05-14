@@ -133,6 +133,19 @@ exports.Prisma.AccountScalarFieldEnum = {
   isBlockingEnabled: 'isBlockingEnabled'
 };
 
+exports.Prisma.BlockListScalarFieldEnum = {
+  id: 'id',
+  ownerId: 'ownerId'
+};
+
+exports.Prisma.BlockItemScalarFieldEnum = {
+  id: 'id',
+  blockListId: 'blockListId',
+  type: 'type',
+  data: 'data',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -142,11 +155,16 @@ exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 };
-
+exports.BlockItemType = exports.$Enums.BlockItemType = {
+  Website: 'Website',
+  Keyword: 'Keyword'
+};
 
 exports.Prisma.ModelName = {
   User: 'User',
-  Account: 'Account'
+  Account: 'Account',
+  BlockList: 'BlockList',
+  BlockItem: 'BlockItem'
 };
 
 /**
