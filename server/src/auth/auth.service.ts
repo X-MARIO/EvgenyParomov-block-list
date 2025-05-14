@@ -1,12 +1,14 @@
 import { BadRequestException, Injectable } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
 import { PasswordService } from './password.service';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
   public constructor(
     private readonly usersService: UsersService,
     private readonly passwordService: PasswordService,
+    private readonly jwtService: JwtService,
   ) {}
 
   public async signUp(email: string, password: string) {
@@ -23,8 +25,13 @@ export class AuthService {
 
     const newUser = await this.usersService.create(email, hash, salt);
 
-    return;
+    const accessToken = await this.jwtService.signAsync({
+      id: newUser.id,
+      email: newUser.email,
+    });
+
+    return { accessToken };
   }
 
-  public signIn(email: string, password: string) {}
+  public async signIn(email: string, password: string) {}
 }
