@@ -1,18 +1,22 @@
-import axios, {AxiosError, AxiosRequestConfig} from "axios";
+import axios, { AxiosError, AxiosRequestConfig } from "axios";
 
-const apiInstance = axios.create({
-    baseURL: '/api',
+export const apiInstance = axios.create({
+    baseURL: "http://localhost:3000",
+    withCredentials: true,
     headers: {
         "Content-Type": "application/json",
-    }
+    },
 });
 
-export const createInstance = <T>(config: AxiosRequestConfig, options?: AxiosRequestConfig): Promise<T> => {
+export const createInstance = <T>(
+    config: AxiosRequestConfig,
+    options?: AxiosRequestConfig,
+): Promise<T> => {
     return apiInstance({
         ...config,
-        ...options
-    }).then(r => r.data);
-}
+        ...options,
+    }).then((r) => r.data);
+};
 
 export type BodyType<Data> = Data;
 

@@ -16,6 +16,10 @@ async function bootstrap() {
 
   app.use(cookieParser());
   app.useGlobalPipes(new ValidationPipe());
+  app.enableCors({
+    origin: 'http://localhost:3001', // Укажите origin вашего Next.js приложения
+    credentials: true, // Разрешите передачу куки и заголовков авторизации
+  });
 
   await app.listen(process.env.PORT ?? 3000);
 }

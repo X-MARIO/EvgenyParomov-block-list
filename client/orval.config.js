@@ -1,5 +1,5 @@
 module.exports = {
-    "main": {
+    main: {
         input: "./src/shared/api/schema.yaml",
         output: {
             target: "./src/shared/api/generated.ts",
@@ -7,9 +7,9 @@ module.exports = {
             override: {
                 mutator: {
                     path: "./src/shared/api/api-instance.ts",
-                    name: "createInstance"
-                }
-            }
-        }
-    }
-}
+                    name: "createInstance",
+                },
+            },
+        },
+    },
+};
