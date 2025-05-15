@@ -4,8 +4,8 @@
  * Block list
  * OpenAPI spec version: 1.0.0
  */
-import { createInstance } from './api-instance';
-import type { BodyType } from './api-instance';
+import { createInstance } from "./api-instance";
+import type { BodyType } from "./api-instance";
 export interface HelloWorldDto {
   message: string;
 }
@@ -37,13 +37,13 @@ export interface PatchAccountDto {
   isBlockingEnabled?: boolean;
 }
 
-export type BlockItemDtoType = typeof BlockItemDtoType[keyof typeof BlockItemDtoType];
-
+export type BlockItemDtoType =
+  (typeof BlockItemDtoType)[keyof typeof BlockItemDtoType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const BlockItemDtoType = {
-  Website: 'Website',
-  Keyword: 'Keyword',
+  Website: "Website",
+  Keyword: "Keyword",
 } as const;
 
 export interface BlockItemDto {
@@ -60,13 +60,13 @@ export interface BlockListDto {
   items: BlockItemDto[];
 }
 
-export type AddBlockItemDtoType = typeof AddBlockItemDtoType[keyof typeof AddBlockItemDtoType];
-
+export type AddBlockItemDtoType =
+  (typeof AddBlockItemDtoType)[keyof typeof AddBlockItemDtoType];
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export const AddBlockItemDtoType = {
-  Website: 'Website',
-  Keyword: 'Keyword',
+  Website: "Website",
+  Keyword: "Keyword",
 } as const;
 
 export interface AddBlockItemDto {
@@ -75,118 +75,151 @@ export interface AddBlockItemDto {
 }
 
 export type BlockListControllerGetListParams = {
-q?: string;
+  q?: string;
 };
 
 type SecondParameter<T extends (...args: never) => unknown> = Parameters<T>[1];
 
+export const appControllerGetHello = (
+  options?: SecondParameter<typeof createInstance>,
+) => {
+  return createInstance<HelloWorldDto>({ url: `/`, method: "GET" }, options);
+};
 
-  export const appControllerGetHello = (
-    
- options?: SecondParameter<typeof createInstance>,) => {
-      return createInstance<HelloWorldDto>(
-      {url: `/`, method: 'GET'
-    },
-      options);
-    }
-  
 export const authControllerSignUp = (
-    signUpBodyDto: BodyType<SignUpBodyDto>,
- options?: SecondParameter<typeof createInstance>,) => {
-      return createInstance<void>(
-      {url: `/auth/sign-up`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: signUpBodyDto
+  signUpBodyDto: BodyType<SignUpBodyDto>,
+  options?: SecondParameter<typeof createInstance>,
+) => {
+  return createInstance<void>(
+    {
+      url: `/auth/sign-up`,
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      data: signUpBodyDto,
     },
-      options);
-    }
-  
+    options,
+  );
+};
+
 export const authControllerSignIn = (
-    signInBodyDto: BodyType<SignInBodyDto>,
- options?: SecondParameter<typeof createInstance>,) => {
-      return createInstance<void>(
-      {url: `/auth/sign-in`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: signInBodyDto
+  signInBodyDto: BodyType<SignInBodyDto>,
+  options?: SecondParameter<typeof createInstance>,
+) => {
+  return createInstance<void>(
+    {
+      url: `/auth/sign-in`,
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      data: signInBodyDto,
     },
-      options);
-    }
-  
+    options,
+  );
+};
+
 export const authControllerSignOut = (
-    
- options?: SecondParameter<typeof createInstance>,) => {
-      return createInstance<void>(
-      {url: `/auth/sign-out`, method: 'POST'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof createInstance>,
+) => {
+  return createInstance<void>(
+    { url: `/auth/sign-out`, method: "POST" },
+    options,
+  );
+};
+
 export const authControllerGetSessionInfo = (
-    
- options?: SecondParameter<typeof createInstance>,) => {
-      return createInstance<GetSessionInfoDto>(
-      {url: `/auth/session`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof createInstance>,
+) => {
+  return createInstance<GetSessionInfoDto>(
+    { url: `/auth/session`, method: "GET" },
+    options,
+  );
+};
+
 export const accountControllerGetAccount = (
-    
- options?: SecondParameter<typeof createInstance>,) => {
-      return createInstance<AccountDto>(
-      {url: `/account`, method: 'GET'
-    },
-      options);
-    }
-  
+  options?: SecondParameter<typeof createInstance>,
+) => {
+  return createInstance<AccountDto>(
+    { url: `/account`, method: "GET" },
+    options,
+  );
+};
+
 export const accountControllerPatchAccount = (
-    patchAccountDto: BodyType<PatchAccountDto>,
- options?: SecondParameter<typeof createInstance>,) => {
-      return createInstance<AccountDto>(
-      {url: `/account`, method: 'PATCH',
-      headers: {'Content-Type': 'application/json', },
-      data: patchAccountDto
+  patchAccountDto: BodyType<PatchAccountDto>,
+  options?: SecondParameter<typeof createInstance>,
+) => {
+  return createInstance<AccountDto>(
+    {
+      url: `/account`,
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      data: patchAccountDto,
     },
-      options);
-    }
-  
+    options,
+  );
+};
+
 export const blockListControllerGetList = (
-    params?: BlockListControllerGetListParams,
- options?: SecondParameter<typeof createInstance>,) => {
-      return createInstance<BlockListDto>(
-      {url: `/block-list`, method: 'GET',
-        params
-    },
-      options);
-    }
-  
+  params?: BlockListControllerGetListParams,
+  options?: SecondParameter<typeof createInstance>,
+) => {
+  return createInstance<BlockListDto>(
+    { url: `/block-list`, method: "GET", params },
+    options,
+  );
+};
+
 export const blockListControllerAddBlockItem = (
-    addBlockItemDto: BodyType<AddBlockItemDto>,
- options?: SecondParameter<typeof createInstance>,) => {
-      return createInstance<BlockItemDto>(
-      {url: `/block-list/item`, method: 'POST',
-      headers: {'Content-Type': 'application/json', },
-      data: addBlockItemDto
+  addBlockItemDto: BodyType<AddBlockItemDto>,
+  options?: SecondParameter<typeof createInstance>,
+) => {
+  return createInstance<BlockItemDto>(
+    {
+      url: `/block-list/item`,
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      data: addBlockItemDto,
     },
-      options);
-    }
-  
+    options,
+  );
+};
+
 export const blockListControllerRemoveBlockItem = (
-    id: number,
- options?: SecondParameter<typeof createInstance>,) => {
-      return createInstance<BlockItemDto>(
-      {url: `/block-list/item/${id}`, method: 'DELETE'
-    },
-      options);
-    }
-  
-export type AppControllerGetHelloResult = NonNullable<Awaited<ReturnType<typeof appControllerGetHello>>>
-export type AuthControllerSignUpResult = NonNullable<Awaited<ReturnType<typeof authControllerSignUp>>>
-export type AuthControllerSignInResult = NonNullable<Awaited<ReturnType<typeof authControllerSignIn>>>
-export type AuthControllerSignOutResult = NonNullable<Awaited<ReturnType<typeof authControllerSignOut>>>
-export type AuthControllerGetSessionInfoResult = NonNullable<Awaited<ReturnType<typeof authControllerGetSessionInfo>>>
-export type AccountControllerGetAccountResult = NonNullable<Awaited<ReturnType<typeof accountControllerGetAccount>>>
-export type AccountControllerPatchAccountResult = NonNullable<Awaited<ReturnType<typeof accountControllerPatchAccount>>>
-export type BlockListControllerGetListResult = NonNullable<Awaited<ReturnType<typeof blockListControllerGetList>>>
-export type BlockListControllerAddBlockItemResult = NonNullable<Awaited<ReturnType<typeof blockListControllerAddBlockItem>>>
-export type BlockListControllerRemoveBlockItemResult = NonNullable<Awaited<ReturnType<typeof blockListControllerRemoveBlockItem>>>
+  id: number,
+  options?: SecondParameter<typeof createInstance>,
+) => {
+  return createInstance<BlockItemDto>(
+    { url: `/block-list/item/${id}`, method: "DELETE" },
+    options,
+  );
+};
+
+export type AppControllerGetHelloResult = NonNullable<
+  Awaited<ReturnType<typeof appControllerGetHello>>
+>;
+export type AuthControllerSignUpResult = NonNullable<
+  Awaited<ReturnType<typeof authControllerSignUp>>
+>;
+export type AuthControllerSignInResult = NonNullable<
+  Awaited<ReturnType<typeof authControllerSignIn>>
+>;
+export type AuthControllerSignOutResult = NonNullable<
+  Awaited<ReturnType<typeof authControllerSignOut>>
+>;
+export type AuthControllerGetSessionInfoResult = NonNullable<
+  Awaited<ReturnType<typeof authControllerGetSessionInfo>>
+>;
+export type AccountControllerGetAccountResult = NonNullable<
+  Awaited<ReturnType<typeof accountControllerGetAccount>>
+>;
+export type AccountControllerPatchAccountResult = NonNullable<
+  Awaited<ReturnType<typeof accountControllerPatchAccount>>
+>;
+export type BlockListControllerGetListResult = NonNullable<
+  Awaited<ReturnType<typeof blockListControllerGetList>>
+>;
+export type BlockListControllerAddBlockItemResult = NonNullable<
+  Awaited<ReturnType<typeof blockListControllerAddBlockItem>>
+>;
+export type BlockListControllerRemoveBlockItemResult = NonNullable<
+  Awaited<ReturnType<typeof blockListControllerRemoveBlockItem>>
+>;
