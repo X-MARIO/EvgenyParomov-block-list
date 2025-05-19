@@ -1,5 +1,6 @@
 import {authControllerGetSessionInfo} from "@/shared/api/generated";
 import {useQuery} from "@tanstack/react-query";
+import {UiButton} from "@/shared/ui/ui-button";
 
 export const HomePage = () => {
 
@@ -9,8 +10,12 @@ export const HomePage = () => {
   });
 
   return (
-      <main>
+      <main className={'flex min-h-screen flex-col items-center justify-between p-24'}>
         { data?.email }
+        <UiButton variant="primary"></UiButton>
+        <UiButton variant="secondary"></UiButton>
+        <UiButton variant="outlined"></UiButton>
+        <UiButton disabled variant="primary"></UiButton>
       </main>
   )
 }
