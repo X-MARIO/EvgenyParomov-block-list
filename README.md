@@ -6,3 +6,4 @@
 4. `npx prisma generate`
 5. `npx prisma migrate reset`
 6. `docker compose down -v `
+7. `npx @agentdeskai/browser-tools-server@1.2.0
