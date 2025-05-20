@@ -5,6 +5,7 @@ import {UiTextField} from "@/shared/ui/ui-text-field";
 import {UiSelectField} from "@/shared/ui/ui-select-field";
 import {UiLink} from "@/shared/ui/ui-link";
 import {UiSpinner} from "@/shared/ui/ui-spinner";
+import {UiPageSpinner} from "@/shared/ui/ui-page-spinner";
 
 export const HomePage = () => {
 
@@ -27,6 +28,7 @@ export const HomePage = () => {
                            options={[{value: "1", label: 'Label 1'}]}></UiSelectField>
             <UiLink href={'/'}>texas</UiLink>
             <UiSpinner className={"text-teal-600 w-20 h-20"} />
+            <UiPageSpinner />
         </main>
     )
 }
