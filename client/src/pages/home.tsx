@@ -3,6 +3,7 @@ import {useQuery} from "@tanstack/react-query";
 import {UiButton} from "@/shared/ui/ui-button";
 import {UiTextField} from "@/shared/ui/ui-text-field";
 import {UiSelectField} from "@/shared/ui/ui-select-field";
+import {UiLink} from "@/shared/ui/ui-link";
 
 export const HomePage = () => {
 
@@ -23,6 +24,7 @@ export const HomePage = () => {
             <UiTextField inputProps={{placeholder: 'Enter email'}}></UiTextField>
             <UiSelectField selectProps={{placeholder: 'Enter email'}}
                            options={[{value: "1", label: 'Label 1'}]}></UiSelectField>
+            <UiLink href={'/'}>texas</UiLink>
         </main>
     )
 }
