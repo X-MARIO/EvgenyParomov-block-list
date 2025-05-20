@@ -5,7 +5,7 @@ import {UiTextField} from "@/shared/ui/ui-text-field";
 import {UiSelectField} from "@/shared/ui/ui-select-field";
 import {UiLink} from "@/shared/ui/ui-link";
 import {UiSpinner} from "@/shared/ui/ui-spinner";
-import {UiPageSpinner} from "@/shared/ui/ui-page-spinner";
+import {UiHeader} from "@/shared/ui/ui-header";
 
 export const HomePage = () => {
 
@@ -15,8 +15,8 @@ export const HomePage = () => {
     });
 
     return (
-        <main className={'flex min-h-screen flex-col items-center justify-between p-24'}>
-            {data?.email}
+        <main className={'min-h-screen'}>
+            <UiHeader right={<div>{data?.email}</div>}/>
             <UiButton variant="primary">Test</UiButton>
             <UiButton variant="secondary">Test</UiButton>
             <UiButton variant="outlined">Test</UiButton>
@@ -27,8 +27,7 @@ export const HomePage = () => {
             <UiSelectField selectProps={{placeholder: 'Enter email'}}
                            options={[{value: "1", label: 'Label 1'}]}></UiSelectField>
             <UiLink href={'/'}>texas</UiLink>
-            <UiSpinner className={"text-teal-600 w-20 h-20"} />
-            <UiPageSpinner />
+            <UiSpinner className={"text-teal-600 w-20 h-20"}/>
         </main>
     )
 }
